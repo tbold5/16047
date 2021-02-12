@@ -16,5 +16,5 @@ http.createServer(function (req, res) {
         res.write(data);
         return res.end();
     });
-}).listen(8888);
+}).listen(8887);
 console.log("Server is listening");
