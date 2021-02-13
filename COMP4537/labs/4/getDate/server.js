@@ -1,7 +1,7 @@
-let http = require('http');
+let https = require('https');
 let dt = require('../../../modules/utils');
 let url = require('url');
-http.createServer(function (req, res) {
+https.createServer(function (req, res) {
     let q = url.parse(req.url, true);
     console.log(q.query);
     res.writeHead(200, {"Content-Type": "text/html"}); 
