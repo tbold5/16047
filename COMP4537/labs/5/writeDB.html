@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <h1>THE XMLHttp Request Object</h1>
+    <p>Enter name and score</p> <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+    <label for="score">Score:</label>
+    <input type="text" id="score" name="score"><br><br>
+    <div id="demo">
+        <button type="button" onclick="myFunc()">Store in DB</button>
+    </div>
+    <script>
+        let userName = document.getElementById('name').value;
+        let userScore = document.getElementById('score').value;
+        function myFunc() {
+            if (isNaN(userScore)) {
+                window.alert('Score must be a number!');
+            }
+            const xhttp = new XMLHttpRequest();
+            xhttp.open('GET', "http://localhost:63342/db_insert/?name=" + userName + '&score=' + userScore, true);
+            xhttp.send();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
