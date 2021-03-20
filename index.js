@@ -294,11 +294,11 @@ if (envjs.NODE_ENV == "production") {
             .createServer(
                 {
                     key: fs.readFileSync(
-                        "/etc/letsencrypt/live/ktruong.net/privkey.pem",
+                        "/etc/letsencrypt/live/trae-bold.com-0001/privkey.pem",
                         "utf-8"
                     ),
                     cert: fs.readFileSync(
-                        "/etc/letsencrypt/live/ktruong.net/fullchain.pem",
+                        "/etc/letsencrypt/live/trae-bold.com-0001/fullchain.pem",
                         "utf-8"
                     ),
                 },
