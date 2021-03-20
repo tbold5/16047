@@ -1,4 +1,3 @@
-const http = require("http");
 const https = require("https");
 const fs = require("fs");
 const url = require("url");
@@ -10,8 +9,7 @@ const envjs = require("./env");
 /**
  * FINAL CONSTANT VARIABLES
  */
-const httpPort = 80;
-const httpsPort = process.env.PORT || 443;
+const httpsPort = 443;
 
 /**
  * Database Connection.
@@ -268,21 +266,6 @@ function router(req, res) {
     });
 }
 
-/**
- * HTTP Server, redirects to https server.
- */
-http.createServer((req, res) => {
-    if (envjs.NODE_ENV == "production") {
-        res.writeHead(302, {
-            Location: "https://" + req.headers.host + req.url,
-        });
-        return res.end();
-    }
-
-    router(req, res);
-}).listen(httpPort, () => {
-    console.log(`Server listening at http://localhost:${httpPort}`);
-});
 
 /**
  * HTTPS server
